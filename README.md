@@ -1,103 +1,186 @@
-# Piscicultura-App
+Título do Projeto:
 📱 Piscicultura App — Gerenciamento Inteligente de Tanques e Lotes
 
-Um aplicativo completo para gerenciamento de piscicultura, construído com React Native e Expo, projetado para ajudar piscicultores a otimizar a produção e monitorar a saúde de seus tanques e lotes de forma eficiente e intuitiva.
-🐠 Sobre o Projeto
+Descrição para a IA (Cursor):
 
-O Piscicultura App foi criado para modernizar a gestão de viveiros de peixes. A ferramenta centraliza todas as informações essenciais em um só lugar, permitindo que o produtor tome decisões mais rápidas e baseadas em dados, resultando em maior produtividade e redução de perdas.
-✨ Funcionalidades Principais
-
-O aplicativo oferece um conjunto robusto de ferramentas para o gerenciamento diário:
-
-    Gerenciamento de Tanques: Cadastre e monitore múltiplos tanques, com informações sobre dimensões, volume e capacidade.
-
-    Controle de Lotes: Acompanhe cada lote de peixes, desde a entrada dos alevinos até a despesca, registrando espécie, quantidade e data de início.
-
-    Registro de Alimentação: Anote o tipo de ração, a quantidade fornecida e a frequência, garantindo um controle nutricional preciso.
-
-    Monitoramento da Qualidade da Água: Registre parâmetros vitais como pH, oxigênio dissolvido, amônia e temperatura.
-
-    Biometria: Acompanhe o crescimento dos peixes registrando peso e tamanho médios ao longo do tempo.
-
-    Relatórios de Desempenho: Gere relatórios visuais sobre ganho de peso, conversão alimentar e outros indicadores-chave de desempenho (KPIs).
-
-🛠️ Tecnologias Utilizadas
-
-    React Native: Framework para desenvolvimento de aplicativos móveis multiplataforma.
-
-    Expo: Plataforma e conjunto de ferramentas para facilitar o desenvolvimento e a implantação de apps React Native.
-
-    JavaScript/TypeScript: Linguagem de programação principal.
-
-    (Outras bibliotecas como react-navigation, axios, etc., podem ser adicionadas aqui conforme o projeto evolui).
-
-🚀 Como Iniciar
-
-Siga os passos abaixo para configurar e executar o projeto em seu ambiente de desenvolvimento local.
-Pré-requisitos
-
-    Node.js (versão LTS recomendada)
-
-    Git
-
-    O aplicativo Expo Go instalado em seu smartphone (iOS ou Android)
-
-Instalação e Execução
-
-    Clone o repositório:
-
-    git clone [https://github.com/seu-usuario/piscicultura-app.git](https://github.com/seu-usuario/piscicultura-app.git)
-
-    Navegue até o diretório do projeto:
-
-    cd piscicultura-app
-
-    Instale as dependências:
-
-    npm install
-
-    ou, se você usar o Yarn:
-
-    yarn
-
-    Execute o aplicativo:
-
-    npx expo start
-
-    Após executar o comando acima, um QR Code será exibido no terminal. Abra o aplicativo Expo Go em seu celular e escaneie o QR Code para carregar o app.
-
-📂 Estrutura de Pastas
-
-O projeto segue uma estrutura de pastas organizada para garantir a manutenibilidade e escalabilidade do código:
-
+Crie um aplicativo completo de Piscicultura usando React Native com Expo.
+O app deve rodar localmente com o comando npx expo start e ter uma estrutura organizada conforme o modelo abaixo.
+O objetivo é permitir que piscicultores gerenciem tanques, lotes, alimentação, qualidade da água, biometria dos peixes e relatórios de desempenho.
+⚙️ Estrutura de pastas
 piscicultura-app/
-├── assets/         # Imagens, fontes e outros arquivos estáticos
-├── src/
-│   ├── components/ # Componentes reutilizáveis (Botões, Inputs, Cards)
-│   ├── constants/  # Constantes globais (Cores, Estilos)
-│   ├── contexts/   # Contextos da aplicação (Autenticação, Dados)
-│   ├── navigation/ # Configuração de rotas e navegação
-│   ├── screens/    # Telas principais da aplicação
-│   ├── services/   # Lógica de negócio e chamadas de API
-│   └── utils/      # Funções utilitárias
-├── .gitignore
-├── App.js          # Arquivo de entrada principal
-└── package.json
+├── App.js
+├── firebaseConfig.js
+├── app.json
+├── package.json
+├── babel.config.js
+└── src/
+    ├── navigation/
+    │   ├── AppNavigator.js
+    │   └── AuthNavigator.js
+    ├── screens/
+    │   ├── Auth/
+    │   │   ├── LoginScreen.js
+    │   │   └── RegisterScreen.js
+    │   ├── Dashboard/
+    │   │   ├── DashboardScreen.js
+    │   │   ├── AlertsScreen.js
+    │   │   └── ReportsScreen.js
+    │   ├── Tanks/
+    │   │   ├── TanksScreen.js
+    │   │   └── AddTankScreen.js
+    │   ├── Lots/
+    │   │   ├── LotsScreen.js
+    │   │   ├── AddLotScreen.js
+    │   │   └── LotDetailScreen.js
+    │   ├── Records/
+    │   │   ├── WaterQualityScreen.js
+    │   │   ├── FeedingScreen.js
+    │   │   └── BiometricsScreen.js
+    │   └── Settings/
+    │       ├── ProfileScreen.js
+    │       └── SettingsScreen.js
+    ├── components/
+    │   ├── TankCard.js
+    │   ├── LotCard.js
+    │   ├── StatCard.js
+    │   └── DataChart.js
+    ├── utils/
+    │   ├── formulas.js
+    │   └── helpers.js
+    └── styles/
+        └── global.js
+🧩 Requisitos Gerais
 
-🤝 Como Contribuir
+Framework: React Native com Expo.
 
-Contribuições são bem-vindas! Se você tiver ideias para novas funcionalidades ou encontrar um bug, sinta-se à vontade para abrir uma Issue ou enviar um Pull Request.
+Linguagem: JavaScript (sem TypeScript).
 
-    Faça um fork do projeto.
+Design: Interface limpa, moderna e responsiva.
 
-    Crie uma nova branch (git checkout -b feature/sua-feature).
+Navegação: Usar @react-navigation/native e @react-navigation/native-stack.
 
-    Faça o commit de suas alterações (git commit -m 'Adiciona nova feature').
+Armazenamento:
 
-    Envie para a branch original (git push origin feature/sua-feature).
+AsyncStorage para dados locais (usuário, tanques, lotes, registros).
 
-    Abra um Pull Request.
+Estrutura de firebaseConfig.js já pronta para integração futura (Firebase Authentication e Firestore).
 
-📄 Licença
+Estilo:
 
-Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+Centralizar cores e fontes em src/styles/global.js.
+
+Usar SafeAreaView, ScrollView e TouchableOpacity quando apropriado.
+
+Ícones: @expo/vector-icons.
+
+Gráficos: react-native-chart-kit.
+
+🖥️ Funcionalidades Principais
+🔐 Autenticação (/screens/Auth)
+
+LoginScreen.js:
+Formulário com email e senha.
+Botão "Entrar" e link "Criar conta".
+
+RegisterScreen.js:
+Cadastro com nome, email e senha.
+Dados salvos localmente com AsyncStorage.
+
+📊 Dashboard (/screens/Dashboard)
+
+DashboardScreen.js:
+Mostra visão geral com:
+
+Quantidade de tanques e lotes.
+
+Últimas medições de temperatura, pH e oxigênio.
+
+Cartões de estatísticas com ícones (StatCard.js).
+
+AlertsScreen.js:
+Lista de alertas automáticos (ex: temperatura fora do limite).
+
+ReportsScreen.js:
+Relatórios de crescimento e consumo.
+Exibir gráficos com react-native-chart-kit e opção de exportar em CSV.
+
+🐟 Tanques (/screens/Tanks)
+
+TanksScreen.js:
+Lista tanques cadastrados (usa TankCard.js).
+
+AddTankScreen.js:
+Formulário para adicionar novo tanque (nome, volume, espécie, temperatura ideal, pH ideal, oxigênio ideal).
+
+🧬 Lotes (/screens/Lots)
+
+LotsScreen.js:
+Lista de lotes com nome do tanque, espécie e quantidade.
+
+AddLotScreen.js:
+Formulário para criar novo lote.
+
+LotDetailScreen.js:
+Exibe informações completas do lote e seu histórico (alimentação, biometria e qualidade da água).
+
+📋 Registros (/screens/Records)
+
+WaterQualityScreen.js:
+Registrar pH, temperatura e oxigênio dissolvido.
+
+FeedingScreen.js:
+Registrar alimentação (quantidade, hora, tipo de ração).
+
+BiometricsScreen.js:
+Registrar peso médio, crescimento e taxa de mortalidade.
+
+⚙️ Configurações (/screens/Settings)
+
+ProfileScreen.js:
+Permite editar nome, email, telefone e nome da fazenda.
+Foto de perfil usando expo-image-picker.
+Salvar alterações com AsyncStorage.
+
+SettingsScreen.js:
+Opções gerais: tema claro/escuro, reset de dados e sobre o app.
+
+🧱 Componentes Reutilizáveis
+
+TankCard.js → Card para exibir informações do tanque.
+
+LotCard.js → Card com informações do lote.
+
+StatCard.js → Card para estatísticas no dashboard.
+
+DataChart.js → Componente para exibir gráficos reutilizáveis.
+
+🧮 Utils
+
+formulas.js → Funções para cálculos úteis (ex: conversão de volume, taxa de conversão alimentar).
+
+helpers.js → Funções genéricas (validação de dados, formatação de datas).
+🎨 Estilo Global
+
+Arquivo: src/styles/global.js
+
+Paleta de cores principal:
+export default {
+  colors: {
+    primary: '#2E86AB',
+    secondary: '#A2D5F2',
+    background: '#F8F9FA',
+    text: '#333',
+    card: '#FFFFFF',
+  },
+  fonts: {
+    regular: 'System',
+    bold: 'System',
+  },
+};
+
+
+npm install @react-navigation/native @react-navigation/native-stack
+npm install @react-native-async-storage/async-storage
+npm install react-native-chart-kit react-native-svg
+npm install expo-image-picker expo-file-system
+npm install @expo/vector-icons
